@@ -1,0 +1,92 @@
+package com.toast.grid;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.toast.grid.service.EmployeeSerivce;
+import com.toast.grid.vo.Data;
+import com.toast.grid.vo.EmployeeVO;
+
+import lombok.extern.slf4j.Slf4j;
+
+@RestController
+@Slf4j
+@RequestMapping(value = "ajax")
+public class AjaxController {
+	
+	 Logger logger = LoggerFactory.getLogger(AjaxController.class);
+	
+	@Autowired
+	private EmployeeSerivce employeeService;
+	
+	
+	
+	@RequestMapping(value = "toastList") 
+	public List toastList() {
+		List list = new ArrayList();
+		Map map = new HashMap();
+		map.put("name","나리");
+		map.put("artist","b");
+		map.put("type","c");
+		map.put("release","1.1.1.0");
+		map.put("genre","M");
+		
+		
+		list.add(map);
+		
+		Map<String, Object> map2 = new HashMap<String, Object>();
+		map2.put("1", map);
+		
+		/*
+		 * list.add(map); list.add(map); list.add(map); list.add(map); list.add(map);
+		 * list.add(map);
+		 * 
+		 * return list;
+		 */
+		return list;
+	}
+	@RequestMapping(value = "toastDataList")
+	public List toastDataList() {
+		List list = new ArrayList<>();
+		
+		Data data = new Data("a","b","c","1.1.1.0","M");
+		list.add(data);
+		
+		data = new Data("d","e","f","2.2.2.0","W");
+		list.add(data);
+		
+		data = new Data("g","h","i","3.3.3.0","M");
+		list.add(data);
+		 
+		return list;
+	}
+	
+	@PostMapping("search")
+	public List employeeList() {
+		List list = new ArrayList<EmployeeVO>();
+		
+		list = employeeService.getEmpList();
+		
+		return list;
+	}
+	
+	@GetMapping("search/get")
+	public List employeeListGet() {
+		List list = new ArrayList<EmployeeVO>();
+		
+		list = employeeService.getEmpList();
+		
+		return list;
+	}
+	
+}

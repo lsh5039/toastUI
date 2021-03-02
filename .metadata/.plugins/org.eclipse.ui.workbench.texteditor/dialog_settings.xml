@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<item key="selection" value="xml"/>
+		<list key="findhistory">
+			<item value="xml"/>
+			<item value="toastDataList"/>
+			<item value="gridData"/>
+			<item value="grid"/>
+			<item value="toastList"/>
+			<item value="SL"/>
+			<item value="sl"/>
+			<item value="lombok"/>
+			<item value="daoImple단"/>
+			<item value=""/>
+			<item value="daoImple"/>
+			<item value="dao"/>
+			<item value="dao단"/>
+			<item value="Unsatisfied dependency expressed through field"/>
+			<item value="ServiceImpl"/>
+		</list>
+		<list key="replacehistory">
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="532"/>
+		<item key="DIALOG_Y_ORIGIN" value="108"/>
+		<item key="DIALOG_WIDTH" value="340"/>
+		<item key="DIALOG_HEIGHT" value="454"/>
+		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+	</section>
+</section>

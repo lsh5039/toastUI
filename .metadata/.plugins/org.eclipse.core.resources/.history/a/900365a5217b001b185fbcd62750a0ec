@@ -1,0 +1,93 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+	<script src="/resources/tui-grid.js"></script>
+	<link rel="stylesheet" href="/resources/tui-grid.css" type="text/css" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<style>
+		.searchTop{margin: 0 auto; width: 1200px; text-align: center; }
+		
+	
+	</style>
+	<script type="text/javascript">
+	window.onload = function(){
+			const grid = new tui.Grid({
+		   	 el: document.getElementById('grid'),
+		    //data: gridData,
+		    scrollX: false,
+		    scrollY: false,
+		    columns: [
+		      {
+		        header: 'name',
+		        name: 'name'
+		      },
+		      {
+		        header: 'artist',
+		        name: 'artist'
+		      },
+		      {
+		        header: 'type',
+		        name: 'type'
+		      },
+		      {
+		        header: 'release',
+		        name: 'release'
+		      }
+		    ]
+		  }); 
+		  
+		  
+	
+			$('.searchBtn').click(function(){
+				if(document.querySelector('.searchBtn').innerHTML == '초기화'){
+					$('.searchBtn').html('검색');
+					grid.clear();
+					return;
+				}
+				
+				$.ajax({
+					url : '/ajax/toastDataList',
+					method: 'post',
+					dataType : 'json',
+					success: function(result){
+						
+						console.log(result);
+						grid.resetData(result);
+						
+						///
+						
+						
+						///
+						
+						
+						document.querySelector('.searchBtn').innerHTML = '초기화';
+					},
+					error : function(result){
+						console.log('ajax error!');
+					}
+				})
+								
+			
+			})
+		}
+
+		
+		
+		
+		
+	</script>
+</head>
+<body> 
+	<div class="searchTop">
+		<h1 style="text-align:center">사원정보 검색</h1>
+		<button class="btn btn-primary searchBtn">검색</button>
+	</div>
+	<div id="grid"></div>
+
+</body>
+</html>

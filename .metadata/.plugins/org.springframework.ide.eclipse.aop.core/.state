@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="ToastGrid"/>
+<aop-project name="Lombok"/>
+<aop-project name="employee"/>
+</aop-reference-model>
